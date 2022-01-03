@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import Navrbar from './components/navbar/Navrbar';
+import News from './components/news/News';
+// 44050a4f3f6a48308b27288739475db6
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navrbar />
+      <News />
     </div>
   );
 }
