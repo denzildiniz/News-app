@@ -9,7 +9,7 @@ import NewsItem from '../newsItem/NewsItem'
 import useStyles from './style';
 
 
-const News = ({pageSize}) => {
+const News = ({ pageSize }) => {
     const [data, setData] = useState({})
 
     useEffect(() => {
@@ -30,19 +30,18 @@ const News = ({pageSize}) => {
 
     return (
         <div className={classes.root}>
-        <Grid container spacing={2} >
-        {data.articles && data.articles.map((article) => (
-            <Grid item xs={12} sm={6} md={4} key={article.url}>
-                <NewsItem
-                    title={article.title}
-                    description={article.description}
-                    urlToImage={article.urlToImage}
-                    url={article.url}
-                />
+            <Grid container spacing={2} >
+                {data.articles && data.articles.map((article) => (
+                    <Grid item xs={12} sm={6} md={4} key={article.url}>
+                        <NewsItem
+                            title={article.title}
+                            description={article.description}
+                            urlToImage={article.urlToImage}
+                            url={article.url}
+                        />
+                    </Grid>
+                ))}
             </Grid>
-        ))}
-
-        </Grid>
         </div>
     )
 }
