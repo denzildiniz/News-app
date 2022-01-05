@@ -9,7 +9,7 @@ import NewsItem from '../newsItem/NewsItem'
 import useStyles from './style';
 
 
-const News = ({ pageSize }) => {
+const News = ({ pageSize ,category}) => {
     const [data, setData] = useState({})
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const News = ({ pageSize }) => {
     },[])
 
     const getNews = async () => {
-        const recievedNews = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=44050a4f3f6a48308b27288739475db6&pageSize=${pageSize}`);
+        const recievedNews = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=44050a4f3f6a48308b27288739475db6&pageSize=${pageSize}`);
         // console.log({recievedNews})
         return recievedNews;
     }
