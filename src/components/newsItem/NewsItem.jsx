@@ -41,13 +41,3 @@ const NewsItem = ({ title, description, urlToImage, url, author, publishedAt, so
 
 export default NewsItem
 
-
-
-// <Badge badgeContent={source} color="secondary" className={classes.badgeClass}>
-// <CardMedia
-//     component="img"
-//     alt={urlToImage}
-//     height='auto'
-//     image={urlToImage != null ? urlToImage : `https://cdn.dnaindia.com/sites/default/files/styles/half/public/2022/01/03/1012898-pandemic-fatigue-pixabay.jpg`}
-// />
-// </Badge>
