@@ -38,6 +38,9 @@ const News = ({ pageSize ,category}) => {
                             description={article.description}
                             urlToImage={article.urlToImage}
                             url={article.url}
+                            author={article.author}
+                            publishedAt={article.publishedAt}
+                            source={article.source.name}
                         />
                     </Grid>
                 ))}

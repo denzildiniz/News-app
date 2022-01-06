@@ -27,13 +27,13 @@ const Navrbar = () => {
                         (<MenuIcon className='nav__menu' onClick={menuHandler} />)
                     }
                     <ul className={menuToggle ? 'nav__lists nav__lists--active' : 'nav__lists' }>
-                        <li className='nav__items'><Link to='/general' className='nav__links'>Home</Link></li>
-                        <li className='nav__items'><Link to='/business' className='nav__links'>Business</Link></li>
-                        <li className='nav__items'><Link to='/entertainment' className='nav__links'>Entertainment</Link></li>
-                        <li className='nav__items'><Link to='/health' className='nav__links'>Health</Link></li>
-                        <li className='nav__items'><Link to='/science' className='nav__links'>Science</Link></li>
-                        <li className='nav__items'><Link to='/sports' className='nav__links'>Sports</Link></li>
-                        <li className='nav__items'><Link to='/technology' className='nav__links'>Technology</Link></li>
+                        <li className='nav__items'><Link to='/general' onClick={menuHandler} className='nav__links'>Home</Link></li>
+                        <li className='nav__items'><Link to='/business' onClick={menuHandler} className='nav__links'>Business</Link></li>
+                        <li className='nav__items'><Link to='/entertainment' onClick={menuHandler} className='nav__links'>Entertainment</Link></li>
+                        <li className='nav__items'><Link to='/health' onClick={menuHandler} className='nav__links'>Health</Link></li>
+                        <li className='nav__items'><Link to='/science' onClick={menuHandler} className='nav__links'>Science</Link></li>
+                        <li className='nav__items'><Link to='/sports' onClick={menuHandler} className='nav__links'>Sports</Link></li>
+                        <li className='nav__items'><Link to='/technology' onClick={menuHandler} className='nav__links'>Technology</Link></li>
                     </ul>
                 </Toolbar>
             </AppBar>

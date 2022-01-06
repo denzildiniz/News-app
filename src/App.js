@@ -13,12 +13,12 @@ import {
 
 function App() {
   return (
-    
+
     <div className="App">
       <Router>
         <Navrbar />
-
         <Routes>
+          <Route exact path="/" element={<News key="general" pageSize={9} category={"general"} />} />
           <Route exact path="/general" element={<News key="general" pageSize={9} category={"general"} />} />
           <Route exact path="/business" element={<News key="business" pageSize={9} category={"business"} />} />
           <Route exact path="/entertainment" element={<News key="entertainment" pageSize={9} category={"entertainment"} />} />
@@ -29,7 +29,7 @@ function App() {
         </Routes>
       </Router>
     </div>
-    
+
   );
 }
 
