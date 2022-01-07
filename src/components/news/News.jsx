@@ -15,19 +15,21 @@ import useStyles from './style';
 const News = ({ pageSize, category }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
-    const [totalResults, setTotalResults] = useState(0)
+    const [totalResults, setTotalResults] = useState()
     // const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getNews().then(res => {
-            console.log({ res })
+            // console.log({ res })
             // console.log(res.data.totalResults)
             setData(res.data);
+            // console.log(data)
             setTotalResults(res.data.totalResults);
-            console.log({totalResults})
+            setPage(page+1);
+            // console.log(test)
         })
 
-    }, [])
+    }, [totalResults])
 
     const getNews = async () => {
         const recievedNews = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=44050a4f3f6a48308b27288739475db6&page=${page}&pageSize=${pageSize}`);
@@ -41,10 +43,12 @@ const News = ({ pageSize, category }) => {
         const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=44050a4f3f6a48308b27288739475db6&page=${page}&pageSize=${pageSize}`;
         const fetchedData = await fetch(url);
         const parsedData = await fetchedData.json();
-        // console.log({parsedData});
+        // console.log(data)
+        console.log({parsedData});
         setData(data.concat(parsedData.articles));
+        // setData([...data, parsedData.articles]);
         setTotalResults(parsedData.totalResults);
-        console.log({totalResults})
+        // console.log({ data })
     }
 
     const classes = useStyles();
@@ -79,4 +83,7 @@ const News = ({ pageSize, category }) => {
 }
 
 export default News
+
+
+
 
