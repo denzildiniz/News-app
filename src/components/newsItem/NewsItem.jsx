@@ -11,7 +11,7 @@ const NewsItem = ({ title, description, urlToImage, url, author, publishedAt, so
             <Badge badgeContent={source} color="secondary" anchorOrigin={{
                 vertical: 'center',
                 horizontal: 'left',
-              }}>
+            }}>
                 <CardMedia
                     component="img"
                     alt={urlToImage}
