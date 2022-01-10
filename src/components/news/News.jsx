@@ -16,17 +16,15 @@ const News = ({ pageSize, category }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState()
-    // const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getNews();
     }, [])
 
     const getNews = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=44050a4f3f6a48308b27288739475db6&page=${page}&pageSize=${pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${page}&pageSize=${pageSize}`;
         const fetchedData = await fetch(url);
         const parsedData = await fetchedData.json();
-        console.log(parsedData.articles)
         setData(parsedData.articles);
         setTotalResults(parsedData.totalResults);
         setPage(page + 1);
@@ -35,7 +33,7 @@ const News = ({ pageSize, category }) => {
     const fetchMoreData = async () => {
         try {
             setPage(page + 1);
-            const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=44050a4f3f6a48308b27288739475db6&page=${page}&pageSize=${pageSize}`;
+            const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${page}&pageSize=${pageSize}`;
             const fetchedData = await fetch(url);
             const parsedData = await fetchedData.json();
             setData(data.concat(parsedData.articles));
@@ -54,13 +52,13 @@ const News = ({ pageSize, category }) => {
                 dataLength={data.length}
                 next={fetchMoreData}
                 hasMore={data.length !== totalResults}
-                loader={<CircularProgress color="secondary" />}
+                loader={<CircularProgress color="secondary" style={{'marginTop':'20px'}} />}
                 style={{
                     'overflow': 'hidden',
-                    'marginBottom': '6px'
+                    'marginBottom': '6px',
                 }}
             >
-                <Grid container spacing={2} className='classes.marginZero'>
+                <Grid container spacing={2} className={classes.marginZero}>
                     {data && data.map((article) => (
                         <Grid item xs={12} sm={6} md={4} key={article.url}>
                             <NewsItem

@@ -9,11 +9,8 @@ import {
 } from "react-router-dom";
 
 
-// 44050a4f3f6a48308b27288739475db6
-
-function App() {
+const App = () => {
   return (
-
     <div className="App">
       <Router>
         <Navrbar />
@@ -29,7 +26,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-
   );
 }
 
